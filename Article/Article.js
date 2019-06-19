@@ -11,6 +11,7 @@ class Article {
     this.expandButton.textContent = "expand";
     // Set a click handler on the expandButton reference, calling the expandArticle method.
     this.expandButton.addEventListener("click", this.expandArticle.bind(this));
+    // this.expandButton.addEventListener("click", this.closeArticle.bind(this));
   }
 
   expandArticle() {
@@ -19,6 +20,10 @@ class Article {
     // this.domElement.classList.toggle(".article-open"); /// Don't forget to remove "." in front of class
     this.domElement.classList.toggle("article-open");
   }
+
+  // closeArticle() {
+  //   this.domElement.classList.toggle("")
+  // }
 }
 
 /* START HERE: 
@@ -28,3 +33,10 @@ class Article {
 
 let articles = document.querySelectorAll(".article");
 articles.forEach(article => new Article(article));
+
+// jQuery - lol I give up to use GSAP
+$(document).ready(function() {
+  $(".expandButton").click(() => $("article"));
+});
+
+// To do later - remove article from HTML and add in this file using document.createElement() and Element.appendChild

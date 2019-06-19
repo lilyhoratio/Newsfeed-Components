@@ -71,6 +71,9 @@ body {
 .menu--open {
   display: block;
 }
+.menu--close {
+  display: none;
+}
 .articles {
   margin-top: 95px;
 }
@@ -107,6 +110,7 @@ body {
   color: grey;
   cursor: pointer;
   transform: translate(-50%);
+  animation: scale-up-ver-top 0.4s cubic-bezier(0.39, 0.575, 0.565, 1) both;
   background-color: white;
 }
 .article-open {
