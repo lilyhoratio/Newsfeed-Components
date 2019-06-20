@@ -4,26 +4,26 @@ class Article {
   constructor(domElement) {
     // assign this.domElement to the passed in domElement
     this.domElement = domElement;
-    // console.log(this.domElement);
+
     // create a reference to the ".expandButton" class. 
     this.expandButton = domElement.querySelector(".expandButton");
+
     // Using your expandButton reference, update the text on your expandButton to say "expand"
-    this.expandButton.textContent = "expand";
+    this.expandButton.textContent = "Click to Expand";
+
     // Set a click handler on the expandButton reference, calling the expandArticle method.
-    this.expandButton.addEventListener("click", this.expandArticle.bind(this));
-    // this.expandButton.addEventListener("click", this.closeArticle.bind(this));
+    this.expandButton.addEventListener("click", this.expandArticle.bind(this)); 
+    // this.expandButton.addEventListener('click', () => {
+    //   this.expandArticle();
+    // });
   }
 
   expandArticle() {
     // Using our reference to the domElement, toggle a class to expand or hide the article.
-    // console.log(this.expandButton.classList.toggle(".article-open")); // BAHHH targetting wrong element
-    // this.domElement.classList.toggle(".article-open"); /// Don't forget to remove "." in front of class
-    this.domElement.classList.toggle("article-open");
+    console.log(this.domElement.classList); // why does the DOMTokenList include "article-open" before the toggle happens?? le confuse...
+    this.domElement.classList.toggle("article-open"); // not ".article-open" - remove the dot!
+    this.domElement.classList.contains("article-open") ? this.expandButton.textContent = "Click to Close" : this.expandButton.textContent = "Click to Expand"; 
   }
-
-  // closeArticle() {
-  //   this.domElement.classList.toggle("")
-  // }
 }
 
 /* START HERE: 
@@ -34,9 +34,9 @@ class Article {
 let articles = document.querySelectorAll(".article");
 articles.forEach(article => new Article(article));
 
-// jQuery - lol I give up to use GSAP
-$(document).ready(function() {
-  $(".expandButton").click(() => $("article"));
-});
+// jQuery - lol I give up
+// $(document).ready(function() {
+//   $(".expandButton").click(() => alert("clicked!!!"));
+// });
 
 // To do later - remove article from HTML and add in this file using document.createElement() and Element.appendChild
