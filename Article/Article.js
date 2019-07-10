@@ -85,6 +85,13 @@ const data = [
     thirdParagraph: `Hodor hodor - hodor... Hodor hodor hodor hodor. Hodor. Hodor! Hodor hodor, hodor hodor hodor hodor hodor; hodor hodor? Hodor!
           Hodor hodor, HODOR hodor, hodor hodor?! Hodor! Hodor hodor, HODOR hodor, hodor hodor, hodor, hodor hodor. Hodor, hodor.
           Hodor. Hodor, hodor, hodor. Hodor hodor... Hodor hodor hodor?! Hodor, hodor... Hodor hodor HODOR hodor, hodor hodor. Hodor.`
+  },
+  {
+    title: "Another article",
+    date: "Jan 1st, 2019",
+    firstParagraph: `Hello`,
+
+    secondParagraph: `Hello again.`
   }
 ];
 
@@ -115,22 +122,32 @@ const data = [
 
 const articleAccordion = document.querySelector(".articles");
 
-data.forEach(article =>
+// data.forEach(article =>
+//   articleAccordion.appendChild(
+//     createArticle(
+//       article.title,
+//       article.date,
+//       article.firstParagraph,
+//       article.secondParagraph,
+//       article.thirdParagraph
+//     )
+//   )
+// );
+
+// data.forEach(article =>
+//   articleAccordion.appendChild(
+//     createArticle(data)
+//   )
+// );
+
+data.forEach(data =>
   articleAccordion.appendChild(
-    createArticle(
-      article.title,
-      article.date,
-      article.firstParagraph,
-      article.secondParagraph,
-      article.thirdParagraph
-    )
+    createArticle(data)
   )
 );
 
-// articleAccordion.appendChild(createArticle(data));
-
-function createArticle(title, date, p1, p2, p3) {
-// function createArticle(data) {
+// function createArticle(title, date, p1, p2, p3) {
+function createArticle(data) {
   // elements
   const article = document.createElement("div");
   const articleTitle = document.createElement("h2");
@@ -153,17 +170,17 @@ function createArticle(title, date, p1, p2, p3) {
 
   //text
 
-  articleTitle.textContent = title;
-  articleDate.textContent = date;
-  firstPara.textContent = p1;
-  secondPara.textContent = p2;
-  thirdPara.textContent = p3;
+  // articleTitle.textContent = title;
+  // articleDate.textContent = date;
+  // firstPara.textContent = p1;
+  // secondPara.textContent = p2;
+  // thirdPara.textContent = p3;
 
-  // articleTitle.textContent = `${data.title}`;
-  // articleDate.textContent = `${data.date}`;
-  // firstPara.textContent = `${data.firstParagraph}`;
-  // secondPara.textContent = `${data.secondParagraph}`;
-  // thirdPara.textContent = `${data.thirdParagraph}`;
+  articleTitle.textContent = `${data.title}`;
+  articleDate.textContent = `${data.date}`;
+  firstPara.textContent = `${data.firstParagraph}`;
+  secondPara.textContent = `${data.secondParagraph}`;
+  thirdPara.textContent = `${data.thirdParagraph}`;
   expandButton.textContent = "Expand";
 
   expandButton.addEventListener("click", () => {
